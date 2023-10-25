@@ -13,14 +13,10 @@ spring:
           uri: http://localhost:8082
           predicates:
             - Path=/members/**, 
-        - id: order
+        - id: grade
           uri: http://localhost:8083
           predicates:
-            - Path=/orders/**, 
-        - id: test11
-          uri: http://localhost:8084
-          predicates:
-            - Path=/undefined/**, 
+            - Path=/grades/**, 
         - id: frontend
           uri: http://localhost:8080
           predicates:
@@ -49,14 +45,10 @@ spring:
           uri: http://member:8080
           predicates:
             - Path=/members/**, 
-        - id: order
-          uri: http://order:8080
+        - id: grade
+          uri: http://grade:8080
           predicates:
-            - Path=/orders/**, 
-        - id: test11
-          uri: http://test11:8080
-          predicates:
-            - Path=/undefined/**, 
+            - Path=/grades/**, 
         - id: frontend
           uri: http://frontend:8080
           predicates:

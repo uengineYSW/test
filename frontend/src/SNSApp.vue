@@ -48,25 +48,13 @@
 
                     <v-list-item
                         class="px-2"
-                        key="orders"
-                        to="/orders/orders"
+                        key="grades"
+                        to="/grades/grades"
                         @click="changeUrl()"
                         color="primary"
                         style="font-weight:700;"
                     >
-                        주문
-                    </v-list-item>
-
-
-                    <v-list-item
-                        class="px-2"
-                        key=""
-                        to="//"
-                        @click="changeUrl()"
-                        color="primary"
-                        style="font-weight:700;"
-                    >
-                        
+                        성적
                     </v-list-item>
 
 
@@ -150,23 +138,16 @@ export default {
         aggregate: [
             { 
                 title: '회원', 
-                description: '회원 관리 기능', 
+                description: '회원을 관리하는 도메인', 
                 key: 'members', 
                 route: '/members/members',
                 ImageUrl: '',
             },
             { 
-                title: '주문', 
-                description: '주문에 대한 설명', 
-                key: 'orders', 
-                route: '/orders/orders',
-                ImageUrl: '',
-            },
-            { 
-                title: '', 
-                description: '', 
-                key: '', 
-                route: '//',
+                title: '성적', 
+                description: '성적에 대한 설명', 
+                key: 'grades', 
+                route: '/grades/grades',
                 ImageUrl: '',
             },
             

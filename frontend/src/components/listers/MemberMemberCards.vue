@@ -15,7 +15,7 @@
                         <span class="material-symbols-outlined" style="font-size:60px; color:#9575CD;">person</span>
                     </v-list-item-avatar>
                     <h1 class="align-self-center ml-3">회원</h1>
-                    <div class="secondary-text-color" style="margin-left:30px;">회원 관리 기능</div>
+                    <div class="secondary-text-color" style="margin-left:30px;">회원을 관리하는 도메인</div>
                 </v-list-item>
             </v-row>
         </v-card>

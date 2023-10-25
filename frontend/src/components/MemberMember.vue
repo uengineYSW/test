@@ -37,7 +37,7 @@
                     text
                     @click="save"
                 >
-                    회원 등록
+                    회원 생성
                 </v-btn>
                 <v-btn
                     color="primary"

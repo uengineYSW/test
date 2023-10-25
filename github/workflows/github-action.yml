@@ -30,8 +30,7 @@ jobs:
       - name: Build Maven Projects
         run: |
           mvn clean package -f ./member/pom.xml
-          mvn clean package -f ./order/pom.xml
-          mvn clean package -f ./test11/pom.xml
+          mvn clean package -f ./grade/pom.xml
 
       - name: Docker Build and push for Member
         uses: docker/build-push-action@v4
@@ -43,23 +42,13 @@ jobs:
             ghcr.io/${{ github.repository }}/member:latest
             ghcr.io/${{ github.repository }}/member:${{ github.ref_name }}
             
-      - name: Docker Build and push for Order
+      - name: Docker Build and push for Grade
         uses: docker/build-push-action@v4
         with:
-          context: ./order
+          context: ./grade
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/order:latest
-            ghcr.io/${{ github.repository }}/order:${{ github.ref_name }}
-            
-      - name: Docker Build and push for Test11
-        uses: docker/build-push-action@v4
-        with:
-          context: ./test11
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/test11:latest
-            ghcr.io/${{ github.repository }}/test11:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/grade:latest
+            ghcr.io/${{ github.repository }}/grade:${{ github.ref_name }}
             

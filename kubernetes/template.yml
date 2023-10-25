@@ -43,62 +43,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order
+  name: grade
   labels:
-    app: order
+    app: grade
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: order
+      app: grade
   template:
     metadata:
       labels:
-        app: order
+        app: grade
     spec:
       containers:
-        - name: order
-          image: username/order:latest
-          ports:
-            - containerPort: 8080
-          readinessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 10
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 10
-          livenessProbe:
-            httpGet:
-              path: '/actuator/health'
-              port: 8080
-            initialDelaySeconds: 120
-            timeoutSeconds: 2
-            periodSeconds: 5
-            failureThreshold: 5
-
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: test11
-  labels:
-    app: test11
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: test11
-  template:
-    metadata:
-      labels:
-        app: test11
-    spec:
-      containers:
-        - name: test11
-          image: username/test11:latest
+        - name: grade
+          image: username/grade:latest
           ports:
             - containerPort: 8080
           readinessProbe:
@@ -142,30 +102,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: order
+  name: grade
   labels:
-    app: order
+    app: grade
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: order
-
-
----
-
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: test11
-  labels:
-    app: test11
-spec:
-  ports:
-    - port: 8080
-      targetPort: 8080
-  selector:
-    app: test11
+    app: grade
 

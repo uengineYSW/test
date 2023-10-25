@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.Data;
 import test.MemberApplication;
+import test.domain.MemberCreated;
 import test.domain.MemberDeleted;
-import test.domain.MemberRegistered;
 
 @Entity
 @Table(name = "Member_table")
@@ -24,8 +24,8 @@ public class Member {
 
     @PostPersist
     public void onPostPersist() {
-        MemberRegistered memberRegistered = new MemberRegistered(this);
-        memberRegistered.publishAfterCommit();
+        MemberCreated memberCreated = new MemberCreated(this);
+        memberCreated.publishAfterCommit();
 
         MemberDeleted memberDeleted = new MemberDeleted(this);
         memberDeleted.publishAfterCommit();

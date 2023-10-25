@@ -1,7 +1,7 @@
 # 
 
 ## Model
-www.msaez.io/#/storming/test10251
+www.msaez.io/#/storming/test10241
 
 ## Before Running Services
 ### Make sure there is a Kafka server running
@@ -21,8 +21,7 @@ cd /bin
 See the README.md files inside the each microservices directory:
 
 - member
-- order
-- test11
+- grade
 
 
 ## Run API Gateway (Spring Gateway)
@@ -36,13 +35,9 @@ mvn spring-boot:run
 ```
  http :8088/members name="name" email="email" address="address" 
 ```
-- order
+- grade
 ```
- http :8088/orders orderNumber="orderNumber" orderDate="orderDate" orderStatus="orderStatus" 
-```
-- test11
-```
- http :8088/ 
+ http :8088/grades name="name" subject="subject" grade="grade" 
 ```
 
 

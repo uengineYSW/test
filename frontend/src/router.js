@@ -8,11 +8,8 @@ Vue.use(Router);
 import MemberMemberManager from "./components/listers/MemberMemberCards"
 import MemberMemberDetail from "./components/listers/MemberMemberDetail"
 
-import OrderOrderManager from "./components/listers/OrderOrderCards"
-import OrderOrderDetail from "./components/listers/OrderOrderDetail"
-
-import Manager from "./components/listers/Cards"
-import Detail from "./components/listers/Detail"
+import GradeGradeManager from "./components/listers/GradeGradeCards"
+import GradeGradeDetail from "./components/listers/GradeGradeDetail"
 
 
 export default new Router({
@@ -31,25 +28,14 @@ export default new Router({
             },
 
             {
-                path: '/orders/orders',
-                name: 'OrderOrderManager',
-                component: OrderOrderManager
+                path: '/grades/grades',
+                name: 'GradeGradeManager',
+                component: GradeGradeManager
             },
             {
-                path: '/orders/orders/:id',
-                name: 'OrderOrderDetail',
-                component: OrderOrderDetail
-            },
-
-            {
-                path: '//',
-                name: 'Manager',
-                component: Manager
-            },
-            {
-                path: '///:id',
-                name: 'Detail',
-                component: Detail
+                path: '/grades/grades/:id',
+                name: 'GradeGradeDetail',
+                component: GradeGradeDetail
             },
 
 
