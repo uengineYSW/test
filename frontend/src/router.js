@@ -5,11 +5,11 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 
-import MemberMemberManager from "./components/listers/MemberMemberCards"
-import MemberMemberDetail from "./components/listers/MemberMemberDetail"
+import OrderManager from "./components/listers/OrderCards"
+import OrderDetail from "./components/listers/OrderDetail"
 
-import GradeGradeManager from "./components/listers/GradeGradeCards"
-import GradeGradeDetail from "./components/listers/GradeGradeDetail"
+import InventoryManager from "./components/listers/InventoryCards"
+import InventoryDetail from "./components/listers/InventoryDetail"
 
 
 export default new Router({
@@ -17,25 +17,25 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
             {
-                path: '/members/members',
-                name: 'MemberMemberManager',
-                component: MemberMemberManager
+                path: '/orders',
+                name: 'OrderManager',
+                component: OrderManager
             },
             {
-                path: '/members/members/:id',
-                name: 'MemberMemberDetail',
-                component: MemberMemberDetail
+                path: '/orders/:id',
+                name: 'OrderDetail',
+                component: OrderDetail
             },
 
             {
-                path: '/grades/grades',
-                name: 'GradeGradeManager',
-                component: GradeGradeManager
+                path: '/inventories',
+                name: 'InventoryManager',
+                component: InventoryManager
             },
             {
-                path: '/grades/grades/:id',
-                name: 'GradeGradeDetail',
-                component: GradeGradeDetail
+                path: '/inventories/:id',
+                name: 'InventoryDetail',
+                component: InventoryDetail
             },
 
 

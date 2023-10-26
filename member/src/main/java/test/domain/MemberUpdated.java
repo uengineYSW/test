@@ -11,8 +11,6 @@ import test.infra.AbstractEvent;
 @ToString
 public class MemberUpdated extends AbstractEvent {
 
-    private String memberId;
-    private String name;
     private Email email;
     private Address address;
 

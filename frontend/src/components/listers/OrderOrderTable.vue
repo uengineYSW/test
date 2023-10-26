@@ -66,9 +66,9 @@
             values: [],
             headers: 
                 [
-                    { text: "orderNumber", value: "orderNumber" },
-                    { text: "orderDate", value: "orderDate" },
-                    { text: "orderStatus", value: "orderStatus" },
+                    { text: "id", value: "id" },
+                    { text: "productId", value: "productId" },
+                    { text: "qty", value: "qty" },
                 ],
             order : [],
             newValue: {},
@@ -86,9 +86,8 @@
             this.values = temp.data._embedded.orders;
 
             this.newValue = {
-                'orderNumber': '',
-                'orderDate': '2023-10-25',
-                'orderStatus': '',
+                'productId': '',
+                'qty': 0,
             }
         },
         methods: {

@@ -37,7 +37,7 @@ services:
       - ./member:/usr/src
       - ./maven-repo:/root/.m2
       
-  grade:
+  order:
     depends_on: 
       - kafka
     image: adoptopenjdk/maven-openjdk11:latest
@@ -48,6 +48,20 @@ services:
       - 8083:8083
     working_dir: /usr/src
     volumes:
-      - ./grade:/usr/src
+      - ./order:/usr/src
+      - ./maven-repo:/root/.m2
+      
+  test11:
+    depends_on: 
+      - kafka
+    image: adoptopenjdk/maven-openjdk11:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    command: mvn spring-boot:run
+    ports:
+      - 8084:8084
+    working_dir: /usr/src
+    volumes:
+      - ./test11:/usr/src
       - ./maven-repo:/root/.m2
       

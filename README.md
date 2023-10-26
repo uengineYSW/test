@@ -1,7 +1,7 @@
 # 
 
 ## Model
-www.msaez.io/#/storming/test10241
+www.msaez.io/#/storming/auto-si-test
 
 ## Before Running Services
 ### Make sure there is a Kafka server running
@@ -20,8 +20,8 @@ cd /bin
 ## Run the backend micro-services
 See the README.md files inside the each microservices directory:
 
-- member
-- grade
+- order
+- inventory
 
 
 ## Run API Gateway (Spring Gateway)
@@ -31,20 +31,20 @@ mvn spring-boot:run
 ```
 
 ## Test by API
-- member
+- order
 ```
- http :8088/members name="name" email="email" address="address" 
+ http :8088/orders id="id" productId="productId" qty="qty" 
 ```
-- grade
+- inventory
 ```
- http :8088/grades name="name" subject="subject" grade="grade" 
+ http :8088/inventories productId="productId" stock="stock" 
 ```
 
 
 ## Run the frontend
 ```
 cd frontend
-npm i
+npm install
 npm run serve
 ```
 

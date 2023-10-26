@@ -1,6 +1,6 @@
 <template>
     <div>
-    <h1>주문</h1>
+    <h1></h1>
         <v-row>
             <v-card
                 class="mx-auto"
@@ -26,7 +26,7 @@
                         color="primary"
                         style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                     >
-                        주문 등록
+                         등록
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -46,9 +46,9 @@
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
-                            [ OrderNumber :  {{data.orderNumber }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ OrderDate :  {{data.orderDate }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            [ OrderStatus :  {{data.orderStatus }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Id :  {{data.id }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ ProductId :  {{data.productId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Qty :  {{data.qty }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -116,9 +116,8 @@
             this.values = temp.data._embedded.orders;
             
             this.newValue = {
-                'orderNumber': '',
-                'orderDate': '2023-10-25',
-                'orderStatus': '',
+                'productId': '',
+                'qty': 0,
             }
         },
         methods: {

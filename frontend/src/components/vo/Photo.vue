@@ -5,7 +5,6 @@
         </v-card-title>
 
         <v-img
-            :key="photoRender"
             style="width:400px; height:300px; border-radius:10px; position:relative; margin-left:5px; top:5px;"
             :style="editMode ? 'cursor:pointer;':''"
             :src="value.imgFile ? value.imgFile:'https://cdn.vuetifyjs.com/images/cards/cooking.png'"
@@ -15,7 +14,7 @@
 
         <v-card-text v-if="value">
             <div v-if="editMode">
-                <v-text-field label="" v-model="value.imgName"/>
+                <v-text-field label="Image Name" v-model="value.imgName"/>
                 <slot name="actions"></slot>
             </div>
         </v-card-text>
@@ -30,9 +29,6 @@
             value : Object,
             label : String, 
         },
-        data: () => ({
-            photoRender:0
-        }),
         created(){
             if(!this.value) {
                 this.value = {
@@ -66,7 +62,7 @@
                     reader.onload = function () {
                         var result = reader.result;
                         me.value.imgFile = result;
-                        me.photoRender++;
+                        
                     };
                     reader.readAsDataURL( file );
                 };

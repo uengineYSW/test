@@ -1,5 +1,5 @@
 <template>
-    <v-card style="width:450px; height:100%;" outlined>
+    <v-card style="width:450px;" outlined>
         <template slot="progress">
             <v-progress-linear
                     color="primary-darker-1"
@@ -9,16 +9,15 @@
         </template>
 
         <v-card-title v-if="value._links">
-            주문 # {{decode(value._links.self.href.split("/")[value._links.self.href.split("/").length - 1])}}
+            Order # {{value._links.self.href.split("/")[value._links.self.href.split("/").length - 1]}}
         </v-card-title >
         <v-card-title v-else>
-            주문
+            Order
         </v-card-title >        
 
         <v-card-text>
-            <String v-if="editMode" label="주문 번호" v-model="value.orderNumber" :editMode="editMode" :inputUI="'TEXT'"/>
-            <Date label="주문 일자" v-model="value.orderDate" :editMode="editMode" :inputUI="'TEXT'"/>
-            <String label="주문 상태" v-model="value.orderStatus" :editMode="editMode" :inputUI="'SELECT'"/>
+            <String label="" v-model="value.productId" :editMode="editMode" :inputUI="''"/>
+            <Number label="" v-model="value.qty" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>
@@ -37,7 +36,7 @@
                     text
                     @click="save"
                 >
-                    주문 생성
+                저장
                 </v-btn>
                 <v-btn
                     color="primary"
@@ -59,6 +58,14 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="order"
+            >
+                Order
+            </v-btn>
         </v-card-actions>
 
         <v-snackbar
@@ -94,15 +101,12 @@
             snackbar: {
                 status: false,
                 timeout: 5000,
-                text: '',
+                text: ''
             },
         }),
-	async created() {
+        computed:{
         },
         methods: {
-            decode(value) {
-                return decodeURIComponent(value);
-            },
             selectFile(){
                 if(this.editMode == false) {
                     return false;
@@ -192,6 +196,25 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async order() {
+                try {
+                    if(!this.offline) {
+                        var temp = await axios.put(axios.fixUrl(this.value._links['order'].href))
+                        for(var k in temp.data) {
+                            this.value[k]=temp.data[k];
+                        }
+                    }
+
+                    this.editMode = false;
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
             },
         },
     }

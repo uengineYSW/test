@@ -5,8 +5,6 @@
         </v-card-title>
 
         <v-card-text>
-            <String label="MemberId" v-model="value.memberId" :editMode="editMode"/>
-            <String label="Name" v-model="value.name" :editMode="editMode"/>
             <Email offline label="Email" v-model="value.email" :editMode="editMode" @change="change"/>
             <Address offline label="Address" v-model="value.address" :editMode="editMode" @change="change"/>
         </v-card-text>
@@ -44,8 +42,6 @@
             value: {},
         }),
         created() {
-            this.value.memberId = '';
-            this.value.name = '';
             this.value.email = {};
             this.value.address = {};
         },

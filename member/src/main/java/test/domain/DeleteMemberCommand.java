@@ -7,5 +7,5 @@ import lombok.Data;
 @Data
 public class DeleteMemberCommand {
 
-    private String memberId;
+    private Email email;
 }

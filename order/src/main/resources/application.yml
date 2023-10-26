@@ -1,6 +1,5 @@
 server:
   port: 8080
-
 spring:
   application:
     name: order
@@ -13,7 +12,6 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-        implicit_naming_strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
   cloud:
     stream:
       kafka:
@@ -30,14 +28,10 @@ spring:
       bindings:
         event-in:
           group: order
-#<<< EDA / Topic Name
-          destination: test
-#>>> EDA / Topic Name
+          destination: testmodel
           contentType: application/json
         event-out:
-#<<< EDA / Topic Name
-          destination: test
-#>>> EDA / Topic Name
+          destination: testmodel
           contentType: application/json
 
 logging:
@@ -45,20 +39,19 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
+api:
+  url:
+    inventory: localhost:8083
+    order: localhost:8082
+
 
 server:
-  port: 8083
+  port: 8082
 
 ---
 
 spring:
   profiles: docker
-  jpa:
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true
-        implicit_naming_strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
   cloud:
     stream:
       kafka:
@@ -75,10 +68,15 @@ spring:
       bindings:
         event-in:
           group: order
-          destination: test
+          destination: testmodel
           contentType: application/json
         event-out:
-          destination: test
+          destination: testmodel
           contentType: application/json
+
+api:
+  url:
+    inventory: localhost:8080
+    order: localhost:8080
 
 

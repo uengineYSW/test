@@ -11,7 +11,7 @@ import test.infra.AbstractEvent;
 @ToString
 public class MemberDeleted extends AbstractEvent {
 
-    private String memberId;
+    private Email email;
 
     public MemberDeleted(Member aggregate) {
         super(aggregate);

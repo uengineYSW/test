@@ -5,7 +5,7 @@
         </v-card-title>
 
         <v-card-text>
-            <String label="MemberId" v-model="value.memberId" :editMode="editMode"/>
+            <Email offline label="Email" v-model="value.email" :editMode="editMode" @change="change"/>
         </v-card-text>
 
         <v-card-actions>
@@ -41,7 +41,7 @@
             value: {},
         }),
         created() {
-            this.value.memberId = '';
+            this.value.email = {};
         },
         watch: {
         },

@@ -1,12 +1,7 @@
 <template>
     <div>
         <div v-if="editMode" style="margin-top:-20px;">
-            <v-textarea v-if="multiLine"
-                    :label="label" 
-                    v-model="value"
-                    @change="change"
-            />
-            <v-text-field v-else
+            <v-text-field 
                     :label="label" 
                     v-model="value"
                     @change="change"
@@ -29,13 +24,7 @@
                 default: ''
             },
             editMode: Boolean,
-            label: String,
-            inputUI: String
-        },
-        computed: {
-            multiLine() {
-                return this.inputUI === 'TEXTAREA';
-            }
+            label: String
         },
         methods:{
             change(){

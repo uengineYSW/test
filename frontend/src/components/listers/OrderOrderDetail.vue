@@ -6,13 +6,10 @@
 
         <v-card-text>
             <div>
-                <String label="OrderNumber" v-model="item.orderNumber" :editMode="editMode" @change="change" />
+                <String label="ProductId" v-model="item.productId" :editMode="editMode" @change="change" />
             </div>
             <div>
-                <Date label="OrderDate" v-model="item.orderDate" :editMode="editMode" @change="change" />
-            </div>
-            <div>
-                <String label="OrderStatus" v-model="item.orderStatus" :editMode="editMode" @change="change" />
+                <Number label="Qty" v-model="item.qty" :editMode="editMode" @change="change" />
             </div>
         </v-card-text>
 

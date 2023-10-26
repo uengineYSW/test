@@ -7,8 +7,6 @@ import lombok.Data;
 @Data
 public class UpdateMemberCommand {
 
-    private String memberId;
-    private String name;
     private Email email;
     private Address address;
 }

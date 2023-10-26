@@ -12,10 +12,9 @@
                         size="70"
                         class="border-color"
                     >
-                        <span class="material-symbols-outlined" style="font-size:60px; color:#9575CD;">shopping_cart</span>
                     </v-list-item-avatar>
-                    <h1 class="align-self-center ml-3">주문</h1>
-                    <div class="secondary-text-color" style="margin-left:30px;">주문에 대한 설명</div>
+                    <h1 class="align-self-center ml-3">Order</h1>
+                    <div class="secondary-text-color" style="margin-left:30px;"></div>
                 </v-list-item>
             </v-row>
         </v-card>
@@ -67,7 +66,7 @@
                                 color="primary"
                                 style="font-weight:500; font-size:20px; padding:15px; border:solid 2px; max-width:250px; overflow:hidden"
                             >
-                                주문 등록
+                                 등록
                             </v-btn>
                         </v-card-actions>
                     </v-card>
@@ -110,9 +109,8 @@
             me.values = temp.data._embedded.orders;
             
             me.newValue = {
-                'orderNumber': '',
-                'orderDate': '2023-10-25',
-                'orderStatus': '',
+                'productId': '',
+                'qty': 0,
             }
         },
         methods:{
